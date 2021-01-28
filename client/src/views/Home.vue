@@ -49,9 +49,20 @@
          </div>
       </div>
       <div class="ov-page-container">
-         <button @click.prevent="fetchRand" type="button" class="ov-filter-btn">
+         <button
+            v-if="!fetching"
+            @click.prevent="fetchRand"
+            type="button"
+            class="ov-filter-btn"
+         >
             <i class="las la-random"></i>
          </button>
+         <div
+            v-else
+            class="loading-spinner-container loading-spinner-container-fetch"
+         >
+            <div class="loading-spinner loading-spinner-fetch"></div>
+         </div>
          <Navbar />
          <div class="ov-letter-wrapper">
             <h2 id="luv-leta">
@@ -80,6 +91,7 @@ export default {
          share_id: '',
          is_edited: false,
          notLoading: false,
+         fetching: false,
          sentence:
             "If I could give you one thing in life, I'd give you the ability to see yourself through my eyes, only then would you realize how special you are to me. {{ name }}",
       };
@@ -103,8 +115,10 @@ export default {
    },
    methods: {
       fetchRand() {
+         this.fetching = true;
          axios.get(`${appURL}/api/content/`).then((res) => {
             if (res.data.success) {
+               this.fetching = false;
                this.sentence_id = res.data.content._id;
                this.sentence = res.data.content.content.replace(
                   '{{name}}',
