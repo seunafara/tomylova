@@ -36,7 +36,7 @@
                src="https://assets10.lottiefiles.com/packages/lf20_wMezg6.json"
                background="transparent"
                speed="1"
-               style="width: 200px; height: 200px;"
+               style="width: 200px; height: 200px;margin-top:20px"
                loop
                autoplay
             ></lottie-player>

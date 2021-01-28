@@ -55,6 +55,7 @@ body {
 
 #luv-leta {
    font-family: 'OhDarling', sans-serif;
+   margin-top: 15px;
 }
 
 h1,
@@ -210,7 +211,7 @@ a {
    justify-content: center;
    align-items: center;
    background-color: #fefefe;
-   margin: 45% auto; /* 15% from the top and centered */
+   margin: 30% auto; /* 15% from the top and centered */
    padding: 20px;
    border: 1px solid white;
    border-radius: 7px;
