@@ -55,7 +55,6 @@ body {
 
 #luv-leta {
    font-family: 'OhDarling', sans-serif;
-   margin-top: 15px;
 }
 
 h1,
@@ -171,7 +170,7 @@ a {
    width: -webkit-fill-available;
    min-height: 100vh;
    margin-left: unset;
-   padding: 20px;
+   padding: 20px 40px;
    /* margin-bottom: 54px; */
 }
 
@@ -181,6 +180,7 @@ a {
    height: 100%;
    justify-content: center;
    align-items: center;
+   margin-top: 15px;
 }
 
 .ov-letter-wrapper h2 {
