@@ -6,9 +6,18 @@
             <h2 id="luv-leta" :class="font">
                {{ letter }}
             </h2>
-            <router-link to="/" class="ov-create-new-btn"
-               >Create a Letter</router-link
-            >
+            <div class="ov-v-actions" id="ov-v-actions">
+               <router-link to="/" class="ov-create-new-btn"
+                  >Create a Letter</router-link
+               >
+               <button
+                  type="button"
+                  @click.prevent="generatePhoto"
+                  class="ov-filter-btn ov-capture-btn"
+               >
+                  <i class="las la-camera"></i>
+               </button>
+            </div>
          </div>
       </div>
    </div>
@@ -19,6 +28,8 @@
 import Navbar from '@/components/Navbar';
 import { appURL } from '@/Warehouse/url.js';
 import axios from 'axios';
+import FileSaver from 'file-saver';
+import domtoimage from 'dom-to-image';
 export default {
    name: 'Home',
    data() {
@@ -67,6 +78,16 @@ export default {
                   this.sentence = 'Oops 😢, We could not find this letter.';
                }
             });
+      },
+      generatePhoto() {
+         let { id } = this.$route.params;
+         document.getElementById('ov-v-actions').style.display = 'none';
+         document.getElementById('luv-leta').style.fontSize = '24px';
+         domtoimage.toBlob(document.getElementById('ov-main')).then((blob) => {
+            FileSaver.saveAs(blob, `${id}-capture.png`);
+            document.getElementById('ov-v-actions').style.display = 'flex';
+            document.getElementById('luv-leta').style.fontSize = '55px';
+         });
       },
       changeName() {
          if (this.name != '') {

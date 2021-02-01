@@ -322,6 +322,17 @@ a {
    color: black;
 }
 
+.ov-v-actions {
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.ov-capture-btn {
+   position: unset;
+}
+
 @media only screen and (min-width: 992px) {
    #ov-main {
       flex-direction: row-reverse;
@@ -413,6 +424,7 @@ a {
 
 .ov-font-1 {
    font-family: 'OhDarling' !important;
+   letter-spacing: 5px !important;
 }
 
 .ov-font-2 {
