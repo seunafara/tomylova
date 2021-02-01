@@ -6,6 +6,10 @@ const ContentSchema = new Schema({
       type: String,
       required: true,
    },
+   category: {
+      type: String,
+      default: 'love',
+   },
 });
 
 module.exports = Content = mongoose.model('contents', ContentSchema);

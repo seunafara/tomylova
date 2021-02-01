@@ -250,6 +250,7 @@ a {
    color: white;
    padding: 10px 40px;
    cursor: pointer;
+   text-align: center;
 }
 
 .ov-filter-btn {

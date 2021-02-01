@@ -4,9 +4,11 @@
          <!-- Modal content -->
          <div class="ov-share-modal-content" style="width:55%">
             <form @submit.prevent="changeName">
-               <p>Enter name below for the letter:</p>
+               <p>Enter name below to generate letter:</p>
                <input type="text" v-model="name" />
-               <button v-if="!notLoading" type="submit">SAVE AND SHARE</button>
+               <button v-if="!notLoading" type="submit">
+                  GENERATE AND SHARE
+               </button>
                <button
                   v-if="!notLoading"
                   @click.prevent="closeChange"
@@ -45,11 +47,15 @@
             </div>
             <button
                v-clipboard:copy="share_link"
+               v-clipboard:success="onCopy"
                type="button"
+               v-if="!isCopied"
                class="ov-share-link-copy"
+               id="ov-share-link-copy"
             >
                <i class="las la-clipboard"></i> Copy
             </button>
+            <p v-else>Link Copied!</p>
             <a
                :href="
                   'https://api.whatsapp.com/send?text=I just wrote you a letter%20' +
@@ -109,6 +115,7 @@ export default {
          is_edited: false,
          notLoading: false,
          fetching: false,
+         isCopied: false,
          sentence:
             "If I could give you one thing in life, I'd give you the ability to see yourself through my eyes, only then would you realize how special you are to me. {{ name }}",
       };
@@ -203,6 +210,12 @@ export default {
       closeChange() {
          var modal = document.getElementById('shareModal');
          modal.style.display = 'none';
+      },
+      onCopy: function() {
+         this.isCopied = true;
+         setTimeout(() => {
+            this.isCopied = false;
+         }, 2000);
       },
    },
    mounted() {

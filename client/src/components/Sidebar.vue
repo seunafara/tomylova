@@ -33,9 +33,11 @@ export default {
       showShareDialog() {
          let share_id = localStorage.getItem('share_id');
          let link = document.getElementById('ov-share-link');
-         if (share_id != '') {
+         if (share_id != null) {
             document.getElementById('shareDialog').style.display = 'flex';
             link.innerText = window.location.href + share_id;
+         } else {
+            this.changeUser();
          }
       },
       changeUser() {

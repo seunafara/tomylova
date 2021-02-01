@@ -17,6 +17,7 @@ export default {
    mounted() {
       window.onload = () => {
          document.getElementById('font-loader').style.display = 'none';
+         localStorage.removeItem('share_id');
       };
    },
 };
