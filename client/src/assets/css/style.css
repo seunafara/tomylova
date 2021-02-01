@@ -316,6 +316,12 @@ a {
    border-right-color: transparent !important;
 }
 
+.ov-share-wa-btn {
+   margin-top: 14px;
+   font-family: monospace;
+   color: black;
+}
+
 @media only screen and (min-width: 992px) {
    #ov-main {
       flex-direction: row-reverse;

@@ -43,9 +43,25 @@
             <div id="ov-share-link" class="ov-share-modal-link">
                https://localhost:8080/shaiqoq1
             </div>
-            <button type="button" class="ov-share-link-copy">
+            <button
+               v-clipboard:copy="share_link"
+               type="button"
+               class="ov-share-link-copy"
+            >
                <i class="las la-clipboard"></i> Copy
             </button>
+            <a
+               :href="
+                  'https://api.whatsapp.com/send?text=I just wrote you a letter%20' +
+                     name +
+                     ' . Check it here ' +
+                     share_link
+               "
+               class="ov-share-wa-btn"
+               data-action="share/whatsapp/share"
+               target="_blank"
+               >Share on WhatsApp</a
+            >
          </div>
       </div>
       <div class="ov-page-container">
@@ -89,6 +105,7 @@ export default {
          old_name: '',
          sentence_id: '',
          share_id: '',
+         share_link: '',
          is_edited: false,
          notLoading: false,
          fetching: false,
@@ -176,6 +193,7 @@ export default {
          let link = document.getElementById('ov-share-link');
          if (share_id != '') {
             link.innerText = window.location.href + share_id;
+            this.share_link = window.location.href + share_id;
             document.getElementById('shareDialog').style.display = 'flex';
          }
       },

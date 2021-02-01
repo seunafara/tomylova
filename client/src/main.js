@@ -10,13 +10,16 @@ Vue.config.productionTip = false;
 Vue.prototype.$http = axios;
 const token = localStorage.getItem('token');
 
+import VueClipboard from 'vue-clipboard2';
+Vue.use(VueClipboard);
+
 // if token exists, we will default axios authorization headers
 if (token) {
-  Vue.prototype.$http.defaults.headers.common['Authorization'] = token;
+   Vue.prototype.$http.defaults.headers.common['Authorization'] = token;
 }
 
 new Vue({
-  router,
-  store,
-  render: (h) => h(App),
+   router,
+   store,
+   render: (h) => h(App),
 }).$mount('#app');
