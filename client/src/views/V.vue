@@ -1,9 +1,9 @@
 <template>
-   <div id="ov-main" class="ov-gradient-1">
+   <div id="ov-main" v-if="sentence" :class="gradient">
       <div class="ov-page-container">
          <Navbar />
          <div class="ov-letter-wrapper">
-            <h2 id="luv-leta">
+            <h2 id="luv-leta" :class="font">
                {{ letter }}
             </h2>
             <router-link to="/" class="ov-create-new-btn"
@@ -27,6 +27,8 @@ export default {
          name: 'Daniella',
          old_name: '',
          sentence: 'Hi my name is {{ name }}',
+         gradient: '',
+         font: '',
       };
    },
    computed: {
@@ -48,7 +50,6 @@ export default {
          axios
             .get(`${appURL}/api/content/letter/${id}`)
             .then((res) => {
-               console.log(res);
                if (res) {
                   if (res.data.success) {
                      this.name = res.data.letter.name;
@@ -56,6 +57,8 @@ export default {
                         '{{name}}',
                         this.name
                      );
+                     this.gradient = res.data.letter.gradient;
+                     this.font = res.data.letter.font;
                   }
                }
             })
