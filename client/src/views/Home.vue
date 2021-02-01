@@ -131,14 +131,17 @@ export default {
          if (this.name != '') {
             this.notLoading = true;
             var gradient, font;
+            // set gradient for db
             let colorList = Object.values(
                document.querySelector('#ov-main').classList
             );
+
             if (colorList.length == 0) {
                gradient = 'ov-gradient-1';
             } else {
                gradient = colorList.slice(-1)[0];
             }
+            // set font for db
             let fontList = Object.values(
                document.querySelector('#luv-leta').classList
             );
@@ -147,6 +150,7 @@ export default {
             } else {
                font = fontList.slice(-1)[0];
             }
+            // create the data for db
             let data = {
                name: this.name,
                content: this.sentence_id,

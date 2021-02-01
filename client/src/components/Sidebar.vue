@@ -41,15 +41,11 @@ export default {
       changeUser() {
          // Get the modal
          var modal = document.getElementById('shareModal');
-         // get page container
-         //  var page = document.getElementById('auth-screen');
 
          if (modal.style.display == 'none') {
             modal.style.display = 'flex';
-            // page.classList.add('an-ov-page-blur');
          } else {
             modal.style.display = 'none';
-            // page.classList.remove('an-ov-page-blur');
          }
       },
       changeBG() {

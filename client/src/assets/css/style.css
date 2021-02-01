@@ -183,6 +183,7 @@ a {
    justify-content: center;
    align-items: center;
    margin-top: 20px;
+   padding: unset;
 }
 
 .ov-letter-wrapper h2 {
@@ -347,6 +348,10 @@ a {
 
    .ov-share-modal-content {
       margin: 15% auto;
+   }
+
+   .ov-letter-wrapper {
+      padding: 0 25%;
    }
 }
 
