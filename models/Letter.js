@@ -23,6 +23,14 @@ const LetterSchema = new Schema({
       type: String,
       default: shortid.generate,
    },
+   category: {
+      type: String,
+      default: 'love',
+   },
+   writer: {
+      type: String,
+      default: '',
+   },
 });
 
 module.exports = Letter = mongoose.model('letters', LetterSchema);
