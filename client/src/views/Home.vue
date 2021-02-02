@@ -143,8 +143,8 @@ export default {
          axios.get(`${appURL}/api/content/`).then((res) => {
             if (res.data.success) {
                this.fetching = false;
-               this.sentence_id = res.data.content._id;
-               this.sentence = res.data.content.content.replace(
+               this.sentence_id = res.data.content[0]._id;
+               this.sentence = res.data.content[0].content.replace(
                   '{{name}}',
                   this.name
                );
