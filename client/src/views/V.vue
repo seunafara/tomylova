@@ -1,5 +1,13 @@
 <template>
    <div id="ov-main" v-if="sentence" :class="gradient">
+      <div class="heart-wrapper">
+         <div class="heart x1"></div>
+         <div class="heart x2"></div>
+         <div class="heart x3"></div>
+         <div class="heart x4"></div>
+         <div class="heart x5"></div>
+         <div class="altheart x6"></div>
+      </div>
       <div class="ov-page-container">
          <Navbar />
          <div class="ov-letter-wrapper">
@@ -8,14 +16,17 @@
             </h2>
             <div class="ov-v-actions" id="ov-v-actions">
                <router-link to="/" class="ov-create-new-btn"
-                  >Create a Letter</router-link
+                  >Create a<span style="color:red;margin-left:12px"
+                     >Letter</span
+                  ></router-link
                >
                <button
                   type="button"
                   @click.prevent="generatePhoto"
-                  class="ov-filter-btn ov-capture-btn"
+                  class="ov-create-new-btn ov-filter-btn ov-capture-btn"
                >
                   <i class="las la-camera"></i>
+                  Download Letter
                </button>
             </div>
          </div>
