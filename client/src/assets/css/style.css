@@ -186,7 +186,7 @@ a {
    height: 100%;
    justify-content: center;
    align-items: center;
-   margin-top: 20px;
+   margin-top: 10%;
    padding: unset;
    cursor: pointer;
    min-height: 100vh;
@@ -274,6 +274,18 @@ a {
    cursor: pointer;
 }
 
+.ov-how-btn {
+   justify-content: center;
+   align-items: center;
+   padding: 7px 10px;
+}
+
+.ov-how-btn p {
+   font-family: monospace;
+   margin: 0;
+   margin-right: 5px;
+}
+
 .ov-create-new-btn {
    background-color: transparent;
    font-family: monospace;
@@ -358,6 +370,45 @@ a {
    margin-right: 6px;
 }
 
+.ov-tip-modal-content h4 {
+   text-align: left;
+   font-family: sans-serif;
+   margin: 0;
+   align-self: flex-start;
+   margin-top: 7px;
+}
+
+.ov-tip-modal-content p {
+   text-align: left;
+   font-family: monospace;
+   margin: 10px 0px;
+   font-size: 14px;
+   align-self: flex-start;
+}
+
+.ov-tip-img {
+   width: 80%;
+   height: 60%;
+   margin-top: 12px;
+   align-self: flex-start;
+}
+
+.ov-tip-step-fill {
+   display: flex;
+   flex-direction: column;
+}
+
+.ov-tip-step {
+   display: flex;
+   flex-direction: column;
+   margin-bottom: 20px;
+}
+
+.ov-tip-modal-content {
+   margin: 5% auto;
+   width: 80%;
+}
+
 @media only screen and (min-width: 992px) {
    #ov-main {
       flex-direction: row-reverse;
@@ -394,6 +445,12 @@ a {
 
    .ov-letter-wrapper {
       padding: 0 25%;
+      margin-top: 4%;
+   }
+
+   .ov-tip-modal-content {
+      margin: 10% auto;
+      width: 55%;
    }
 }
 

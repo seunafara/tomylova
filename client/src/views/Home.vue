@@ -1,5 +1,19 @@
 <template>
    <div id="ov-main" class="ov-gradient-1">
+      <div id="tipModal" class="ov-share-modal">
+         <!-- Modal content -->
+         <div class="ov-share-modal-content ov-tip-modal-content">
+            <button
+               @click.prevent="howToUse"
+               class="ov-share-close-btn"
+               type="button"
+            >
+               <i class="las la-times-circle"></i>
+            </button>
+
+            <Tips />
+         </div>
+      </div>
       <div id="shareModal" class="ov-share-modal">
          <!-- Modal content -->
          <div class="ov-share-modal-content" style="width:55%">
@@ -81,24 +95,29 @@
       </div>
       <div class="ov-page-container">
          <button
-            v-if="!fetching"
-            @click.prevent="fetchRand"
+            @click.prevent="howToUse"
             type="button"
-            class="ov-filter-btn"
+            class="ov-filter-btn ov-how-btn"
          >
-            <i class="las la-random"></i>
+            <p>How to use</p>
+            <i class="las la-question-circle"></i>
          </button>
-         <div
-            v-else
-            class="loading-spinner-container loading-spinner-container-fetch"
-         >
-            <div class="loading-spinner loading-spinner-fetch"></div>
-         </div>
          <Navbar />
-         <div class="ov-letter-wrapper" @click.prevent="fetchRand">
+         <div
+            v-if="!fetching"
+            class="ov-letter-wrapper"
+            @click.prevent="fetchRand"
+         >
             <h2 id="luv-leta">
                {{ sentence }}
             </h2>
+         </div>
+         <div
+            v-else
+            class="loading-spinner-container loading-spinner-container-fetch"
+            style="margin: auto;"
+         >
+            <div class="loading-spinner loading-spinner-fetch"></div>
          </div>
       </div>
       <Sidebar />
@@ -109,6 +128,7 @@
 // @ is an alias to /src
 import Navbar from '@/components/Navbar';
 import Sidebar from '@/components/Sidebar';
+import Tips from '@/components/Tips';
 import { appURL } from '@/Warehouse/url.js';
 import axios from 'axios';
 export default {
@@ -138,6 +158,7 @@ export default {
    components: {
       Navbar,
       Sidebar,
+      Tips,
    },
    watch: {
       sentence(newValue) {
@@ -227,6 +248,15 @@ export default {
          setTimeout(() => {
             this.isCopied = false;
          }, 2000);
+      },
+      howToUse() {
+         let modal = document.getElementById('tipModal');
+
+         if (modal.style.display == 'flex') {
+            modal.style.display = 'none';
+         } else {
+            modal.style.display = 'flex';
+         }
       },
    },
    mounted() {
