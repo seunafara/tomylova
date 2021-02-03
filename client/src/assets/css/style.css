@@ -90,6 +90,7 @@ a {
 .an-sidebar-wrapper {
    width: -moz-available;
    width: -webkit-fill-available;
+   width: 100%;
    position: fixed;
    bottom: 0px;
    background-attachment: fixed;
@@ -170,7 +171,8 @@ a {
    width: 100%;
    width: -moz-available;
    width: -webkit-fill-available;
-   min-height: 100vh;
+   min-height: 80vh;
+   height: 100%;
    margin-left: unset;
    padding: 20px 40px;
    display: flex;
