@@ -68,7 +68,7 @@ router.post('/create', (req, res) => {
  */
 
 router.post('/lcreate', (req, res) => {
-   let { name, content, font, gradient } = req.body;
+   let { name, content, font, gradient, writer } = req.body;
 
    if (!name || !content) {
       return res.status(400).json({
@@ -81,6 +81,7 @@ router.post('/lcreate', (req, res) => {
       content,
       font,
       gradient,
+      writer,
    });
 
    newLetter.save().then((letter) => {

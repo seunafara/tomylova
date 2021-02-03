@@ -5,7 +5,16 @@
          <div class="ov-share-modal-content" style="width:55%">
             <form @submit.prevent="changeName">
                <p>Enter name below to generate letter:</p>
-               <input type="text" v-model="name" />
+               <input
+                  type="text"
+                  v-model="name"
+                  placeholder="Who is this letter for?"
+               />
+               <input
+                  type="text"
+                  v-model="writer"
+                  placeholder="Type your name (optional)"
+               />
                <button v-if="!notLoading" type="submit">
                   GENERATE AND SHARE
                </button>
@@ -108,6 +117,7 @@ export default {
       return {
          counter: 1,
          name: 'Daniella',
+         writer: '',
          old_name: '',
          sentence_id: '',
          share_id: '',
@@ -177,6 +187,7 @@ export default {
             // create the data for db
             let data = {
                name: this.name,
+               writer: this.writer,
                content: this.sentence_id,
                gradient,
                font,

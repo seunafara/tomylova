@@ -14,11 +14,15 @@
             <h2 id="luv-leta" :class="font">
                {{ letter }}
             </h2>
+            <div v-if="writer !== ''" class="ov-writer-wrapper">
+               <p :class="font">
+                  With <span style="color:red">❤</span> From
+                  {{ writer | capitalize }}
+               </p>
+            </div>
             <div class="ov-v-actions" id="ov-v-actions">
-               <router-link to="/" class="ov-create-new-btn"
-                  >Create a<span style="color:red;margin-left:12px"
-                     >Letter</span
-                  ></router-link
+               <router-link to="/" class="ov-create-new-btn ov-create-new-btn-v"
+                  >Create a Letter</router-link
                >
                <button
                   type="button"
@@ -51,7 +55,15 @@ export default {
          sentence: 'Hi my name is {{ name }}',
          gradient: '',
          font: '',
+         writer: '',
       };
+   },
+   filters: {
+      capitalize: function(value) {
+         if (!value) return '';
+         value = value.toString();
+         return value.charAt(0).toUpperCase() + value.slice(1);
+      },
    },
    computed: {
       letter() {
@@ -81,6 +93,7 @@ export default {
                      );
                      this.gradient = res.data.letter.gradient;
                      this.font = res.data.letter.font;
+                     this.writer = res.data.letter.writer;
                   }
                }
             })

@@ -71,6 +71,8 @@ a {
 }
 
 #ov-main {
+   height: 100%;
+   position: relative;
    width: 100%;
    display: flex;
    flex-direction: column;
@@ -269,12 +271,18 @@ a {
 }
 
 .ov-create-new-btn {
-   background-color: white;
+   background-color: transparent;
    font-family: monospace;
    padding: 14px 24px;
    display: flex;
    text-decoration: none;
    font-size: 18px;
+   color: white;
+}
+
+.ov-create-new-btn-v {
+   padding: 0;
+   margin-top: 14px;
 }
 
 .ov-share-modal-link {
@@ -533,6 +541,11 @@ a {
    margin-top: 10px;
 }
 
+.ov-writer-wrapper p {
+   color: white;
+   font-size: 22px;
+}
+
 .x1 {
    left: 5%;
    -webkit-transform: scale(0.9);
@@ -695,4 +708,6 @@ a {
    overflow: hidden;
    min-height: 100vh;
    width: 100%;
+   top: 0;
+   bottom: 0;
 }
