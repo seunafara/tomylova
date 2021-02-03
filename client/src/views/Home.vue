@@ -95,7 +95,7 @@
             <div class="loading-spinner loading-spinner-fetch"></div>
          </div>
          <Navbar />
-         <div class="ov-letter-wrapper">
+         <div class="ov-letter-wrapper" @click.prevent="fetchRand">
             <h2 id="luv-leta">
                {{ sentence }}
             </h2>

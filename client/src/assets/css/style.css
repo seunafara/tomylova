@@ -188,6 +188,8 @@ a {
    align-items: center;
    margin-top: 20px;
    padding: unset;
+   cursor: pointer;
+   min-height: 100vh;
 }
 
 .ov-letter-wrapper h2 {
